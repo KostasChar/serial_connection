@@ -1,0 +1,17 @@
+#Serial connection for GX
+
+
+Linux (attach on virtualbox)
+Install picocom --b 115200 /dev/ttyUSB0
+
+You need to know the name of the serial port. Also, you should have read/write permissions to the serial port. Typical serial port names are /dev/ttyS0 for PCs with a built-in serial port and /dev/ttyUSB0 if you are using a USB to serial dongle.
+
+picocom is wonderful in that you can specify all the serial port setting as parameters on the command line. For 115,200 baud (-b 115200), 8 bits (default setting), no parity (default setting), no flow control (default setting), and with no port reset (-r) and no port locking (-l), use:
+
+picocom -b 115200 -r -l /dev/ttyUSB0
+
+To exit picocom, use CNTL-A followed by CNTL-X. 
+
+chmod 777 /deb/ttyUSB0
+
+killall -0 picocom
